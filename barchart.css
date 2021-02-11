@@ -2,3 +2,16 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+#barchart {
+  display: flex;
+  flex-direction: row;
+}
+
+.barchart-bar {
+  border: 1px solid darkgoldenrod;
+  background-color: peachpuff;
+  margin-right: 1px;
+  flex-grow: 1;
+  height: 100%;
+}
