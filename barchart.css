@@ -3,15 +3,18 @@
   box-sizing: border-box;
 }
 
-#barchart {
+#bars {
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
 }
 
-.barchart-bar {
-  border: 1px solid darkgoldenrod;
-  background-color: peachpuff;
-  margin-right: 1px;
+.bar {
   flex-grow: 1;
-  height: 100%;
+  border: 1px solid darkgoldenrod;
+  background: peachpuff;
+  background: -webkit-linear-gradient(to top, #faaca8, peachpuff);
+  background: linear-gradient(to top, #faaca8, peachpuff);
+  margin-right: 1px;
+  height: 100px;
 }

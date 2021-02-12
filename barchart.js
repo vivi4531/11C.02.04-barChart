@@ -1,44 +1,52 @@
-"use strict"; 
+"use strict";
 
-window.addEventListener("DOMContentLoaded", modifyModel); 
+window.addEventListener("load", initArray);
 
-const barchart = [4,57,22,34,9,16,7,23,88,25,4,57,22,34,9,16,7,23,88,25,4,57,22,34,9,16,7,23,88,25,4,57,22,34,9,16,7,23,88,25]; 
+let model = [];
 
-let barchartbar = document.querySelector("barchart");
+function initArray() {
+    //Adds 40 random numbers to the array "model"
 
-function init(){}
-
-function loop(){}
-
-function getNumberOfCustomers(){}
-
-function displayData(){}
-
-function modifyModel(){
-barchart.height = 500;
-console.log(modifyModel);
-
+    //If counter is less than 40, then add 1 
+  for (let counter = 0; counter < 40; counter++) {
+    model[counter] = getNumbers();
+  }
+  loop();
+  showData();
 }
 
+function loop() {
+//Gets the 40 random numbers from the array "model" and adds them to each bar
 
-/*const arr = [];
-let counter = 0;
-
-function arrayCounter() {
-    //Add item in the beginning of the array with unshift
-  arr.unshift(counter);
-  //Add +1s
-  counter++;
-
-  //Array can not be longer than 9 items
-  //Extract item from the end of the array if the counter is bigger than 9
-  if (counter > 9) {
-    arr.pop(arr);
+  for (let counter = 0; counter < 40; counter++) {
+      //Gets id for container and every single bars
+    document.getElementById("bars").getElementsByClassName("bar")[
+      counter
+      //Adds px to the height of the single bars
+    ].style.height = model[counter] + "px";
   }
+}
 
-  //Counter 1000 ms = 1 s
-  setTimeout(arrayCounter, 1000);
+function getNumbers() {
+//Generates a random number between 0 and 32
+  const randomNumber = Math.floor(Math.random() * 32);
+  console.log(randomNumber);
+  return randomNumber;
+}
 
-  //Write the array in the console
-  console.log(arr);
-}*/
+function showData() {
+//Calls modifyModel and loop
+  modifyModel();
+  loop();
+  
+  //setTimeout for 500ms = 1s (make the apperance look like an animation)
+  setTimeout(showData, 500);
+}
+
+function modifyModel() {
+//Adds a number in the end of the array
+  model.push(getNumbers());
+
+  //Gets the first number in the array and removes it
+  model.shift();
+}
